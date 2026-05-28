@@ -5,7 +5,7 @@ import { STATUSES } from '../../utils/constants'
 const EMPTY = {
   company: '', role: '', location: '', url: '',
   status: 'applied',
-  appliedDate: new Date().toISOString().slice(0, 10),
+  appliedDate: '',
   followUpDate: '', salary: '', notes: '',
 }
 
@@ -16,7 +16,7 @@ export function JobModal({ isOpen, job, onSave, onClose }) {
 
   useEffect(() => {
     if (isOpen) {
-      setForm(job ? { ...EMPTY, ...job } : EMPTY)
+      setForm(job ? { ...EMPTY, ...job } : { ...EMPTY, appliedDate: new Date().toISOString().slice(0, 10) })
       setErrors({})
       setTimeout(() => firstRef.current?.focus(), 50)
     }
@@ -45,11 +45,11 @@ export function JobModal({ isOpen, job, onSave, onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="job-modal-title">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
       <div className="relative bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
         <div className="p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+          <h2 id="job-modal-title" className="text-xl font-semibold text-gray-900 mb-6">
             {job ? 'Edit Application' : 'Add Application'}
           </h2>
           <form onSubmit={submit} className="space-y-4">

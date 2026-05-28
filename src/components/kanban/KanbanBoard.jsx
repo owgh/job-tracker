@@ -20,9 +20,19 @@ export function KanbanBoard() {
     setActiveJob(null)
     if (!over) return
     const job = jobs.find(j => j.id === active.id)
-    const targetStatus = STATUSES.find(s => s.id === over.id)
-    if (job && targetStatus && job.status !== targetStatus.id) {
-      moveJob(job.id, targetStatus.id)
+    if (!job) return
+
+    // over.id may be a column id (when dropped on empty column) or a card id (when dropped on a card)
+    let targetStatusId = over.id
+    if (!STATUSES.find(s => s.id === over.id)) {
+      // dropped onto a card — use that card's column as the target
+      const overJob = jobs.find(j => j.id === over.id)
+      if (!overJob) return
+      targetStatusId = overJob.status
+    }
+
+    if (job.status !== targetStatusId) {
+      moveJob(job.id, targetStatusId)
     }
   }
 

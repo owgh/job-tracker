@@ -1,10 +1,12 @@
 import { formatDistanceToNow, format, isPast, parseISO } from 'date-fns'
 
 export function daysAgo(isoDate) {
+  if (!isoDate) return '—'
   return formatDistanceToNow(parseISO(isoDate), { addSuffix: true })
 }
 
 export function formatDate(isoDate) {
+  if (!isoDate) return '—'
   return format(parseISO(isoDate), 'MMM d, yyyy')
 }
 
