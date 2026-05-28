@@ -1,16 +1,25 @@
-# React + Vite
+# Job Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A client-side job application tracker built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Kanban board with drag-and-drop (5 stages: Applied → Phone Screen → Interview → Offer → Rejected)
+- List view with search, status filter, and click-to-sort columns
+- Stats bar: total applied, active, response rate, interviews, offers
+- Add/edit/delete applications via modal form
+- Data persists in `localStorage` — no backend required
+- Keyboard shortcut: press `N` to add a new job from anywhere
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 18 · Vite · Tailwind CSS · @dnd-kit · React Router v6 · date-fns · uuid
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
