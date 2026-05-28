@@ -1,0 +1,48 @@
+const d = days => new Date(Date.now() - days * 86400000).toISOString().slice(0, 10)
+const future = days => new Date(Date.now() + days * 86400000).toISOString().slice(0, 10)
+const now = () => new Date().toISOString()
+
+export const SEED_JOBS = [
+  {
+    id: 'seed-1',
+    company: 'Stripe',
+    role: 'Frontend Engineer',
+    location: 'Remote',
+    url: 'https://stripe.com/jobs',
+    status: 'interview',
+    appliedDate: d(7),
+    followUpDate: future(2),
+    salary: '120k–150k',
+    notes: 'Referral from LinkedIn. Two rounds done.',
+    createdAt: now(),
+    updatedAt: now(),
+  },
+  {
+    id: 'seed-2',
+    company: 'Vercel',
+    role: 'React Developer',
+    location: 'San Francisco, CA',
+    url: 'https://vercel.com/careers',
+    status: 'applied',
+    appliedDate: d(3),
+    followUpDate: '',
+    salary: '',
+    notes: '',
+    createdAt: now(),
+    updatedAt: now(),
+  },
+  {
+    id: 'seed-3',
+    company: 'Linear',
+    role: 'UI Engineer',
+    location: 'Remote',
+    url: 'https://linear.app/careers',
+    status: 'phone_screen',
+    appliedDate: d(5),
+    followUpDate: future(3),
+    salary: '100k–130k',
+    notes: 'HR screen scheduled for next week.',
+    createdAt: now(),
+    updatedAt: now(),
+  },
+]
